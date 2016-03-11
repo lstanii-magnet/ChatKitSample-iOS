@@ -52,7 +52,7 @@ you may not use this software except in compliance with the License.
 
 ## Copyright
 
-Copyright © 2014 Magnet Systems, Inc. All rights reserved.
+Copyright © 2016 Magnet Systems, Inc. All rights reserved.
 
 [website]: http://www.magnet.com/
 [techdoc]: https://www.magnet.com/documentation-home/
