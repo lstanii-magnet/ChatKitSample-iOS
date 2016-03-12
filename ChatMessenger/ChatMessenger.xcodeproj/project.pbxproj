@@ -59,6 +59,7 @@
 		8D38858C1C9373F700378974 /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D38858B1C9373F700378974 /* clouds.png */; };
 		8D38858F1C93920F00378974 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D38858D1C93920F00378974 /* EventsTableViewCell.swift */; };
 		8D3885901C93920F00378974 /* EventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D38858E1C93920F00378974 /* EventsTableViewCell.xib */; };
+		8DA18E0E1C93B0F00050C6F3 /* event.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA18E0D1C93B0F00050C6F3 /* event.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -120,6 +121,7 @@
 		8D38858B1C9373F700378974 /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
 		8D38858D1C93920F00378974 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
 		8D38858E1C93920F00378974 /* EventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewCell.xib; sourceTree = "<group>"; };
+		8DA18E0D1C93B0F00050C6F3 /* event.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +222,7 @@
 		8D38852E1C90B54100378974 /* events */ = {
 			isa = PBXGroup;
 			children = (
+				8DA18E0D1C93B0F00050C6F3 /* event.png */,
 				8D38858B1C9373F700378974 /* clouds.png */,
 				8D38852F1C90B54100378974 /* arrow_right.png */,
 				8D3885301C90B54100378974 /* ask_magnet.png */,
@@ -405,6 +408,7 @@
 				8D3885721C90B54100378974 /* messages_wh.png in Resources */,
 				8D38855F1C90B54100378974 /* bg_img_3.png in Resources */,
 				8D3885631C90B54100378974 /* user_group.png in Resources */,
+				8DA18E0E1C93B0F00050C6F3 /* event.png in Resources */,
 				8D3885571C90B54100378974 /* check_off.png in Resources */,
 				8D3885891C90BB1F00378974 /* Main.storyboard in Resources */,
 				8D3885781C90B54100378974 /* icon_messages_group_new.png in Resources */,

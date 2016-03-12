@@ -98,8 +98,14 @@ class CustomListDatasource : DefaultChatListControllerDatasource {
     
     func mmxListCellForChannel(tableView: UITableView, channel: MMXChannel, channelDetails: MMXChannelDetailResponse, indexPath: NSIndexPath) -> UITableViewCell? {
         if channelDetails.channelName.hasPrefix("global_") {
-            let cell = tableView.dequeueReusableCellWithIdentifier("EventsTableViewCell", forIndexPath: indexPath)
-            return cell
+            if let cell = tableView.dequeueReusableCellWithIdentifier("EventsTableViewCell", forIndexPath: indexPath) as? EventsTableViewCell {
+                if channelDetails.channelName.hasPrefix("global_AWESOME_EVENT") {
+                    cell.eventImage?.image = UIImage(named: "bg_img_1_2.png")
+                } else {
+                    cell.eventImage?.image = UIImage(named: "event.png")
+                }
+                return cell
+            }
         }
         return nil
     }

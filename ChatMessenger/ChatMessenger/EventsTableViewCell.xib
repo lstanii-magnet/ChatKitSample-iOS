@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_img_1_2.png" translatesAutoresizingMaskIntoConstraints="NO" id="ujf-dL-dFv">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujf-dL-dFv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                     </imageView>
                 </subviews>
@@ -25,10 +25,10 @@
                     <constraint firstItem="ujf-dL-dFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xrb-Gb-cWP"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="eventImage" destination="ujf-dL-dFv" id="9yU-Eg-9CR"/>
+            </connections>
             <point key="canvasLocation" x="305" y="419"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="bg_img_1_2.png" width="640" height="256"/>
-    </resources>
 </document>

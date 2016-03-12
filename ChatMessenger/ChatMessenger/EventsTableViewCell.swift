@@ -19,6 +19,8 @@ import UIKit
 
 class EventsTableViewCell: UITableViewCell {
 
+    @IBOutlet var eventImage : UIImageView?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
