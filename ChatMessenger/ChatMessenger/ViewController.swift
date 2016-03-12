@@ -57,8 +57,7 @@ public class MyChatViewController : MMXChatViewController {
 
 class CustomListDatasource : DefaultChatListControllerDatasource {
     
-    var eventChannels : [MMXChannel] = []
-    
+    var loadingGroup : dispatch_group_t = dispatch_group_create()
     
     func mmxListSortChannelDetails(channelDetails: [MMXChannelDetailResponse]) -> [MMXChannelDetailResponse] {
         
@@ -101,8 +100,12 @@ class CustomListDatasource : DefaultChatListControllerDatasource {
             if let cell = tableView.dequeueReusableCellWithIdentifier("EventsTableViewCell", forIndexPath: indexPath) as? EventsTableViewCell {
                 if channelDetails.channelName.hasPrefix("global_AWESOME_EVENT") {
                     cell.eventImage?.image = UIImage(named: "bg_img_1_2.png")
+                    cell.eventLabel?.text = ""
                 } else {
-                    cell.eventImage?.image = UIImage(named: "event.png")
+                    cell.eventImage?.image = nil
+                    cell.eventImage?.backgroundColor = UIColor(red: 48/255.0, green: 195/255.0, blue: 114/255.0, alpha: 1.0)
+                    cell.eventLabel?.text = channelDetails.channel.summary
+                    cell.eventLabel?.textColor = UIColor.whiteColor()
                 }
                 return cell
             }
@@ -111,21 +114,30 @@ class CustomListDatasource : DefaultChatListControllerDatasource {
     }
     
     func loadEventChannels() {
-        // let context = self.controller?.loadingContext()
         MMXChannel.findByTags( Set(["active"]), limit: 5, offset: 0, success: { [weak self] total, channels in
             if channels.count > 0 {
-                let channel = channels.first
-                channel?.subscribeWithSuccess({
-                    MMXChannel.channelDetails(channels, numberOfMessages: 1, numberOfSubcribers: 3, success: { (responseDetails) -> Void in
-                        if self?.eventChannels.count == 0 {
-                            self?.eventChannels = channels
-                            self?.controller?.append(channels)
-                        }
+                let serviceGroup : dispatch_group_t = dispatch_group_create()
+                let lock = NSLock()
+                var events : [MMXChannel] = []
+                
+                for  channel in channels {
+                    dispatch_group_enter(serviceGroup)
+                    
+                    channel.subscribeWithSuccess({
+                        
+                        lock.lock()
+                        events.append(channel)
+                        lock.unlock()
+                        
+                        dispatch_group_leave(serviceGroup)
                         }, failure: { (error) -> Void in
-                            
+                            print("subscribe global error \(error)")
+                            dispatch_group_leave(serviceGroup)
                     })
-                    }, failure: { (error) -> Void in
-                        print("subscribe global error \(error)")
+                }
+                
+                dispatch_group_notify(serviceGroup, dispatch_get_main_queue(),{
+                    self?.controller?.append(events)
                 })
             }
             }) { (error) -> Void in
@@ -133,21 +145,26 @@ class CustomListDatasource : DefaultChatListControllerDatasource {
     }
     
     override func subscribedChannels(completion : ((channels : [MMXChannel]) -> Void)) {
+        dispatch_group_enter(loadingGroup)
         MMXChannel.subscribedChannelsWithSuccess({ ch in
-            let cV = ch.filter({ return $0.ownerUserID == MMUser.currentUser()!.userID})
+            let cV = ch.filter({ return $0.ownerUserID == MMUser.currentUser()!.userID && !$0.name.hasPrefix("global_") })
             completion(channels: cV)
+            dispatch_group_leave(self.loadingGroup)
             }) { error in
                 print(error)
                 completion(channels: [])
+                dispatch_group_leave(self.loadingGroup)
         }
     }
     
     override func mmxControllerLoadMore(searchText: String?, offset: Int) {
         super.mmxControllerLoadMore(searchText, offset: offset)
+        
         if offset == 0 {
-            self.eventChannels = []
+            dispatch_group_notify(loadingGroup, dispatch_get_main_queue(),{
+                self.loadEventChannels()
+            })
         }
-        loadEventChannels()
     }
 }
 

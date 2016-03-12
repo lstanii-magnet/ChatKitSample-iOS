@@ -20,6 +20,7 @@ import UIKit
 class EventsTableViewCell: UITableViewCell {
 
     @IBOutlet var eventImage : UIImageView?
+    @IBOutlet var eventLabel : UILabel?
     
     override func awakeFromNib() {
         super.awakeFromNib()

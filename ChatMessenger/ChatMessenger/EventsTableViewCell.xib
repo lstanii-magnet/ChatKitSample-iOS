@@ -14,19 +14,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujf-dL-dFv">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-ES-Eax">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
-                    </imageView>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ujf-dL-dFv">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="ujf-dL-dFv" secondAttribute="trailing" id="0V4-s0-dee"/>
+                            <constraint firstAttribute="bottom" secondItem="ujf-dL-dFv" secondAttribute="bottom" id="i1I-q0-HpD"/>
+                            <constraint firstItem="ujf-dL-dFv" firstAttribute="leading" secondItem="kl2-ES-Eax" secondAttribute="leading" id="jab-Fw-eGN"/>
+                            <constraint firstItem="ujf-dL-dFv" firstAttribute="top" secondItem="kl2-ES-Eax" secondAttribute="top" id="oXu-ll-cXn"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fCQ-5v-RJo">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="135.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="ujf-dL-dFv" secondAttribute="bottom" id="0DS-JU-1GG"/>
-                    <constraint firstAttribute="trailing" secondItem="ujf-dL-dFv" secondAttribute="trailing" id="8fm-W5-0Kr"/>
-                    <constraint firstItem="ujf-dL-dFv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Q1y-rW-XAk"/>
-                    <constraint firstItem="ujf-dL-dFv" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Xrb-Gb-cWP"/>
+                    <constraint firstItem="fCQ-5v-RJo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="5fv-cH-GBR"/>
+                    <constraint firstAttribute="trailing" secondItem="fCQ-5v-RJo" secondAttribute="trailing" id="FWl-kL-n3v"/>
+                    <constraint firstItem="kl2-ES-Eax" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Lv8-tc-Ern"/>
+                    <constraint firstItem="fCQ-5v-RJo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Ofy-jd-tof"/>
+                    <constraint firstItem="kl2-ES-Eax" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Pen-gS-4ma"/>
+                    <constraint firstAttribute="bottom" secondItem="kl2-ES-Eax" secondAttribute="bottom" id="Yt7-AM-fAF"/>
+                    <constraint firstAttribute="trailing" secondItem="kl2-ES-Eax" secondAttribute="trailing" id="utG-uR-Csr"/>
+                    <constraint firstAttribute="bottom" secondItem="fCQ-5v-RJo" secondAttribute="bottom" id="xJ5-hW-SDg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="eventImage" destination="ujf-dL-dFv" id="9yU-Eg-9CR"/>
+                <outlet property="eventLabel" destination="fCQ-5v-RJo" id="3Uj-Vu-vSs"/>
             </connections>
             <point key="canvasLocation" x="305" y="419"/>
         </tableViewCell>

@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '35288C03D293AF18D5DCBCC3'
+               BlueprintIdentifier = '2049A01C38EF41AE9DD82E79'
                BlueprintName = 'MagnetMax'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'MagnetMax.framework'>
