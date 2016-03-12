@@ -27,6 +27,7 @@ public class MMTableViewController: MMViewController, UITableViewDelegate, UITab
     public private(set) var infiniteLoading : InfiniteLoading = InfiniteLoading()
     public var numberOfPagesToLoadAhead = 3
     public var footers : [String] = []
+    public var cellBackgroundColor : UIColor = UIColor.clearColor()
     
     
     //MARK: Outlets
@@ -59,7 +60,7 @@ public class MMTableViewController: MMViewController, UITableViewDelegate, UITab
         return  numberOfSections - footers.count <= section
     }
     
-    public func idenitfierForFooterSection(section : Int) -> String? {
+    public func identifierForFooterSection(section : Int) -> String? {
         guard isFooterSection(section)  else {
             return nil
         }

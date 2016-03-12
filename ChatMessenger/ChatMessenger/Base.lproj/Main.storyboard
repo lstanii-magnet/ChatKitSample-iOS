@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -312,29 +313,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EhI-s9-qPW">
-                                <rect key="frame" x="0.0" y="164.5" width="600" height="435.5"/>
+                                <rect key="frame" x="0.0" y="304.5" width="600" height="295.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chat App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFT-sw-uHR">
-                                <rect key="frame" x="213" y="89" width="174.5" height="50.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clouds.png" translatesAutoresizingMaskIntoConstraints="NO" id="voL-1J-vdG">
+                                <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="voL-1J-vdG" secondAttribute="height" multiplier="3:1" id="0po-fC-7fz"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My subscribed chats I own." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKW-gF-x1A">
+                                <rect key="frame" x="196" y="274" width="209" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ObT-ZJ-u7q">
+                                <rect key="frame" x="0.0" y="64" width="600" height="200"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="My subscribed  chats others own.">
+                                            <attributes>
+                                                <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                <font key="NSFont" size="19" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="btnPressed" destination="WfW-cv-7ny" eventType="touchUpInside" id="ONI-2C-tY2"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.31424594049999999" green="0.82080366670000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="EhI-s9-qPW" firstAttribute="top" secondItem="O8n-3R-Otc" secondAttribute="bottom" id="80p-OK-r0A"/>
-                            <constraint firstItem="uFT-sw-uHR" firstAttribute="centerX" secondItem="NxQ-uI-95Q" secondAttribute="centerX" id="8vJ-fA-RcF"/>
-                            <constraint firstItem="EhI-s9-qPW" firstAttribute="top" secondItem="uFT-sw-uHR" secondAttribute="bottom" constant="25" id="e4m-9k-5dj"/>
+                            <constraint firstItem="EhI-s9-qPW" firstAttribute="top" secondItem="voL-1J-vdG" secondAttribute="bottom" id="9Im-td-Cyc"/>
+                            <constraint firstItem="EhI-s9-qPW" firstAttribute="top" secondItem="ObT-ZJ-u7q" secondAttribute="bottom" id="H2z-qd-Tbs"/>
+                            <constraint firstItem="ObT-ZJ-u7q" firstAttribute="leading" secondItem="NxQ-uI-95Q" secondAttribute="leading" id="N8h-Nh-Mwm"/>
+                            <constraint firstItem="nKW-gF-x1A" firstAttribute="centerX" secondItem="NxQ-uI-95Q" secondAttribute="centerX" id="SYw-4z-s1L"/>
+                            <constraint firstAttribute="trailing" secondItem="voL-1J-vdG" secondAttribute="trailing" id="UvN-kc-STd"/>
+                            <constraint firstItem="ObT-ZJ-u7q" firstAttribute="top" secondItem="O8n-3R-Otc" secondAttribute="bottom" id="VmK-RJ-fNg"/>
+                            <constraint firstItem="EhI-s9-qPW" firstAttribute="top" secondItem="nKW-gF-x1A" secondAttribute="bottom" constant="10" id="Vwy-6g-B8r"/>
+                            <constraint firstItem="ObT-ZJ-u7q" firstAttribute="bottom" secondItem="voL-1J-vdG" secondAttribute="bottom" id="ZBf-7I-kLv"/>
+                            <constraint firstItem="voL-1J-vdG" firstAttribute="top" secondItem="O8n-3R-Otc" secondAttribute="bottom" id="bDI-8i-Hon"/>
+                            <constraint firstItem="nKW-gF-x1A" firstAttribute="top" secondItem="ObT-ZJ-u7q" secondAttribute="bottom" constant="10" id="bhg-jT-fYx"/>
+                            <constraint firstAttribute="trailing" secondItem="ObT-ZJ-u7q" secondAttribute="trailing" id="hRK-0k-6Tl"/>
                             <constraint firstItem="60g-Ob-mHe" firstAttribute="top" secondItem="EhI-s9-qPW" secondAttribute="bottom" id="jrM-MU-KLj"/>
+                            <constraint firstItem="voL-1J-vdG" firstAttribute="leading" secondItem="NxQ-uI-95Q" secondAttribute="leading" id="tPg-NQ-Zpf"/>
                             <constraint firstAttribute="trailing" secondItem="EhI-s9-qPW" secondAttribute="trailing" id="v1h-ib-wJ6"/>
                             <constraint firstItem="EhI-s9-qPW" firstAttribute="leading" secondItem="NxQ-uI-95Q" secondAttribute="leading" id="wpK-DI-yiY"/>
-                            <constraint firstItem="uFT-sw-uHR" firstAttribute="top" secondItem="O8n-3R-Otc" secondAttribute="bottom" constant="25" id="xk9-e4-bhD"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="80p-OK-r0A"/>
+                                <exclude reference="9Im-td-Cyc"/>
+                                <exclude reference="H2z-qd-Tbs"/>
                             </mask>
                         </variation>
                     </view>
@@ -518,6 +553,7 @@
     </scenes>
     <resources>
         <image name="check_on.png" width="38" height="38"/>
+        <image name="clouds.png" width="600" height="200"/>
         <image name="icon_info.png" width="48" height="48"/>
         <image name="logo_magnet.png" width="81" height="83"/>
         <image name="user_default.png" width="89" height="89"/>

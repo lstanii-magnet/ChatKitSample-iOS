@@ -93,7 +93,6 @@ public class MMViewController: UIViewController, MMViewControllerProtocol {
     }
     
     public func setupViewController() {
-        if let _ = self.view { }
         
         let nav = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.navBarHeight))
         nav.autoresizingMask = .FlexibleWidth

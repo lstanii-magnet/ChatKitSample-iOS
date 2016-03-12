@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '3B165BBAD8940AC32809D679'
+               BlueprintIdentifier = 'AAC8CE31FAF4F939D8686905'
                BlueprintName = 'DZVideoPlayerViewController-DZVideoPlayerViewController'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'DZVideoPlayerViewController.bundle'>
