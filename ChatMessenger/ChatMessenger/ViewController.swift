@@ -255,6 +255,10 @@ class ViewController: MMXChatListViewController {
             _chatViewController = controller
             _chatViewController?.title = newValue?.title
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.Plain, target: nil, action: nil)
+            if let name = _chatViewController?.channel?.name where name.hasPrefix("global_") {
+                _chatViewController?.collectionView?.backgroundColor = UIColor.purpleColor()
+                _chatViewController?.outgoingBubbleImageView = JSQMessagesBubbleImageFactory().outgoingMessagesBubbleImageWithColor(UIColor.jsq_messageBubbleGreenColor())
+            }
         }
         get {
             return _chatViewController
