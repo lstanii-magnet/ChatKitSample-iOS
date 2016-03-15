@@ -1263,7 +1263,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "205"
             endingLineNumber = "205"
-            landmarkName = "registerCells(_:)"
+            landmarkName = "loadMore(_:offset:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1391,8 +1391,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "presentChatViewController(_:users:)"
-            landmarkType = "5">
+            landmarkName = "MMXChatListViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
