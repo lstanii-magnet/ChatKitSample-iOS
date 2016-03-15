@@ -234,8 +234,7 @@ class ViewController: MMXChatListViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-        
-        super.viewWillAppear(animated)
+       super.viewWillAppear(animated)
         
         if !revealLoaded {
             revealLoaded = true
@@ -272,7 +271,6 @@ class ViewController: MMXChatListViewController {
         }
     }
     
-    
     override func setupViewController() {
         super.setupViewController()
         
@@ -304,10 +302,3 @@ class ViewController: MMXChatListViewController {
         self.navigationController?.pushViewController(chatListViewController, animated: true)
     }
 }
-
-
-
-
-
-
-

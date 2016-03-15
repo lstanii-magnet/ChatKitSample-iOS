@@ -1306,11 +1306,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatMessenger/ViewController.swift"
-            timestampString = "479697043.11819"
+            timestampString = "479757593.401866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1322,11 +1322,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatMessenger/ViewController.swift"
-            timestampString = "479697043.11819"
+            timestampString = "479757593.401866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "281"
+            endingLineNumber = "281"
             landmarkName = "setupViewController()"
             landmarkType = "5">
          </BreakpointContent>
@@ -1450,11 +1450,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ChatMessenger/ViewController.swift"
-            timestampString = "479697043.11819"
+            timestampString = "479757593.401866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1569,6 +1569,150 @@
             endingLineNumber = "194"
             landmarkName = "reset()"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+            timestampString = "479757074.019379"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "register(_:failure:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+            timestampString = "479757075.799189"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "register(_:failure:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ext.MagnetMaxCore.__ObjC.MMUser.register (__ObjC.MMUser)(Swift.Optional&lt;(user : __ObjC.MMUser) -&gt; ()&gt;, failure : Swift.Optional&lt;(error : __ObjC.NSError) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "MagnetMaxCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lorenzo.stanton/ChatKitSample-iOS/ChatMessenger/Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+                  timestampString = "479757075.802134"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "136"
+                  endingLineNumber = "136"
+                  offsetFromSymbolStart = "1188">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ext.MagnetMaxCore.__ObjC.MMUser.(register (__ObjC.MMUser) -&gt; (Swift.Optional&lt;(user : __ObjC.MMUser) -&gt; ()&gt;, failure : Swift.Optional&lt;(error : __ObjC.NSError) -&gt; ()&gt;) -&gt; ()).(closure #1)"
+                  moduleName = "MagnetMaxCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lorenzo.stanton/ChatKitSample-iOS/ChatMessenger/Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+                  timestampString = "479757075.802357"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+            timestampString = "479757082.431524"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "register(_:failure:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+            timestampString = "479757084.987974"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "register(_:failure:)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+            timestampString = "479757094.515922"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "register(_:failure:)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ext.MagnetMaxCore.__ObjC.MMUser.register (__ObjC.MMUser)(Swift.Optional&lt;(user : __ObjC.MMUser) -&gt; ()&gt;, failure : Swift.Optional&lt;(error : __ObjC.NSError) -&gt; ()&gt;) -&gt; ()"
+                  moduleName = "MagnetMaxCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lorenzo.stanton/ChatKitSample-iOS/ChatMessenger/Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+                  timestampString = "479757094.518852"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "2067">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "ext.MagnetMaxCore.__ObjC.MMUser.(register (__ObjC.MMUser) -&gt; (Swift.Optional&lt;(user : __ObjC.MMUser) -&gt; ()&gt;, failure : Swift.Optional&lt;(error : __ObjC.NSError) -&gt; ()&gt;) -&gt; ()).(closure #2)"
+                  moduleName = "MagnetMaxCore"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lorenzo.stanton/ChatKitSample-iOS/ChatMessenger/Pods/MagnetMaxCore/MagnetMax/Core/MMUser.swift"
+                  timestampString = "479757094.519038"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
+                  offsetFromSymbolStart = "199">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
