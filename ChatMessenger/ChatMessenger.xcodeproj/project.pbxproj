@@ -8,17 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		0DE9CD065C0FF86B38DC8600 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68CAC6062401653DB30A03BA /* Pods.framework */; };
-		8D1A6B831C98C21900F8D46E /* CustomChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B821C98C21900F8D46E /* CustomChatViewController.swift */; };
-		8D1A6B851C98C39300F8D46E /* HomeChatListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B841C98C39300F8D46E /* HomeChatListDatasource.swift */; };
-		8D1A6B871C98C3EC00F8D46E /* ChatListOwnedByOthersDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B861C98C3EC00F8D46E /* ChatListOwnedByOthersDatasource.swift */; };
-		8D1A6B891C98C42400F8D46E /* ChatListOwnedByOthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B881C98C42400F8D46E /* ChatListOwnedByOthersViewController.swift */; };
-		8D1A6B8B1C98C44F00F8D46E /* CustomChatListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B8A1C98C44F00F8D46E /* CustomChatListDelegate.swift */; };
+		8D1A6B971C98D00D00F8D46E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B8D1C98D00D00F8D46E /* Constants.swift */; };
+		8D1A6B981C98D00D00F8D46E /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B8E1C98D00D00F8D46E /* Errors.swift */; };
+		8D1A6B991C98D00D00F8D46E /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B8F1C98D00D00F8D46E /* Strings.swift */; };
+		8D1A6B9A1C98D00D00F8D46E /* ChatListOwnedByOthersDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B911C98D00D00F8D46E /* ChatListOwnedByOthersDatasource.swift */; };
+		8D1A6B9B1C98D00D00F8D46E /* ChatListOwnedByOthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B921C98D00D00F8D46E /* ChatListOwnedByOthersViewController.swift */; };
+		8D1A6B9C1C98D00D00F8D46E /* CustomChatListDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B931C98D00D00F8D46E /* CustomChatListDelegate.swift */; };
+		8D1A6B9D1C98D00D00F8D46E /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B941C98D00D00F8D46E /* EventsTableViewCell.swift */; };
+		8D1A6B9E1C98D00D00F8D46E /* EventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D1A6B951C98D00D00F8D46E /* EventsTableViewCell.xib */; };
+		8D1A6B9F1C98D00D00F8D46E /* HomeChatListDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6B961C98D00D00F8D46E /* HomeChatListDatasource.swift */; };
+		8D1A6BA61C98D01700F8D46E /* CustomChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6BA11C98D01700F8D46E /* CustomChatViewController.swift */; };
+		8D1A6BA81C98D01700F8D46E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6BA31C98D01700F8D46E /* RegisterViewController.swift */; };
+		8D1A6BA91C98D01700F8D46E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6BA41C98D01700F8D46E /* SignInViewController.swift */; };
+		8D1A6BAA1C98D01700F8D46E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6BA51C98D01700F8D46E /* ViewController.swift */; };
+		8D1A6BAC1C98D05300F8D46E /* RearMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1A6BAB1C98D05300F8D46E /* RearMenuViewController.swift */; };
 		8D3885131C90B3BE00378974 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3885121C90B3BE00378974 /* AppDelegate.swift */; };
-		8D3885151C90B3BE00378974 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3885141C90B3BE00378974 /* ViewController.swift */; };
 		8D38851A1C90B3BE00378974 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D3885191C90B3BE00378974 /* Assets.xcassets */; };
 		8D38851D1C90B3BE00378974 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D38851B1C90B3BE00378974 /* LaunchScreen.storyboard */; };
 		8D3885261C90B46F00378974 /* MagnetMax.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8D3885241C90B46F00378974 /* MagnetMax.plist */; };
-		8D3885271C90B46F00378974 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3885251C90B46F00378974 /* SignInViewController.swift */; };
 		8D3885571C90B54100378974 /* check_off.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D38852B1C90B54100378974 /* check_off.png */; };
 		8D3885581C90B54100378974 /* check_on.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D38852C1C90B54100378974 /* check_on.png */; };
 		8D3885591C90B54100378974 /* logo_magnet.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D38852D1C90B54100378974 /* logo_magnet.png */; };
@@ -55,15 +62,8 @@
 		8D3885781C90B54100378974 /* icon_messages_group_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3885511C90B54100378974 /* icon_messages_group_new.png */; };
 		8D3885791C90B54100378974 /* splash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D3885531C90B54100378974 /* splash.png */; };
 		8D38857A1C90B54100378974 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D3885561C90B54100378974 /* SWRevealViewController.m */; };
-		8D38857D1C90B58500378974 /* RearMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D38857B1C90B58500378974 /* RearMenuViewController.swift */; };
-		8D38857E1C90B58500378974 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D38857C1C90B58500378974 /* RegisterViewController.swift */; };
-		8D3885801C90B5AA00378974 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D38857F1C90B5AA00378974 /* Strings.swift */; };
-		8D3885821C90B5CC00378974 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3885811C90B5CC00378974 /* Errors.swift */; };
-		8D3885841C90B61900378974 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D3885831C90B61900378974 /* Constants.swift */; };
 		8D3885891C90BB1F00378974 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D3885871C90BB1F00378974 /* Main.storyboard */; };
 		8D38858C1C9373F700378974 /* clouds.png in Resources */ = {isa = PBXBuildFile; fileRef = 8D38858B1C9373F700378974 /* clouds.png */; };
-		8D38858F1C93920F00378974 /* EventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D38858D1C93920F00378974 /* EventsTableViewCell.swift */; };
-		8D3885901C93920F00378974 /* EventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D38858E1C93920F00378974 /* EventsTableViewCell.xib */; };
 		8DA18E0E1C93B0F00050C6F3 /* event.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DA18E0D1C93B0F00050C6F3 /* event.png */; };
 /* End PBXBuildFile section */
 
@@ -71,19 +71,26 @@
 		07580F5A7521118C98F5B91D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3430030082C8D62317ABDD21 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		68CAC6062401653DB30A03BA /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8D1A6B821C98C21900F8D46E /* CustomChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomChatViewController.swift; sourceTree = "<group>"; };
-		8D1A6B841C98C39300F8D46E /* HomeChatListDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChatListDatasource.swift; sourceTree = "<group>"; };
-		8D1A6B861C98C3EC00F8D46E /* ChatListOwnedByOthersDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListOwnedByOthersDatasource.swift; sourceTree = "<group>"; };
-		8D1A6B881C98C42400F8D46E /* ChatListOwnedByOthersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListOwnedByOthersViewController.swift; sourceTree = "<group>"; };
-		8D1A6B8A1C98C44F00F8D46E /* CustomChatListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomChatListDelegate.swift; sourceTree = "<group>"; };
+		8D1A6B8D1C98D00D00F8D46E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		8D1A6B8E1C98D00D00F8D46E /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		8D1A6B8F1C98D00D00F8D46E /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		8D1A6B911C98D00D00F8D46E /* ChatListOwnedByOthersDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListOwnedByOthersDatasource.swift; sourceTree = "<group>"; };
+		8D1A6B921C98D00D00F8D46E /* ChatListOwnedByOthersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListOwnedByOthersViewController.swift; sourceTree = "<group>"; };
+		8D1A6B931C98D00D00F8D46E /* CustomChatListDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomChatListDelegate.swift; sourceTree = "<group>"; };
+		8D1A6B941C98D00D00F8D46E /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
+		8D1A6B951C98D00D00F8D46E /* EventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewCell.xib; sourceTree = "<group>"; };
+		8D1A6B961C98D00D00F8D46E /* HomeChatListDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeChatListDatasource.swift; sourceTree = "<group>"; };
+		8D1A6BA11C98D01700F8D46E /* CustomChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomChatViewController.swift; sourceTree = "<group>"; };
+		8D1A6BA31C98D01700F8D46E /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		8D1A6BA41C98D01700F8D46E /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8D1A6BA51C98D01700F8D46E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8D1A6BAB1C98D05300F8D46E /* RearMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearMenuViewController.swift; sourceTree = "<group>"; };
 		8D38850F1C90B3BE00378974 /* ChatMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChatMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D3885121C90B3BE00378974 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D3885141C90B3BE00378974 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D3885191C90B3BE00378974 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8D38851C1C90B3BE00378974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8D38851E1C90B3BE00378974 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D3885241C90B46F00378974 /* MagnetMax.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MagnetMax.plist; sourceTree = "<group>"; };
-		8D3885251C90B46F00378974 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8D38852B1C90B54100378974 /* check_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_off.png; sourceTree = "<group>"; };
 		8D38852C1C90B54100378974 /* check_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check_on.png; sourceTree = "<group>"; };
 		8D38852D1C90B54100378974 /* logo_magnet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_magnet.png; sourceTree = "<group>"; };
@@ -121,16 +128,9 @@
 		8D3885531C90B54100378974 /* splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splash.png; sourceTree = "<group>"; };
 		8D3885551C90B54100378974 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		8D3885561C90B54100378974 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		8D38857B1C90B58500378974 /* RearMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RearMenuViewController.swift; sourceTree = "<group>"; };
-		8D38857C1C90B58500378974 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		8D38857F1C90B5AA00378974 /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
-		8D3885811C90B5CC00378974 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
-		8D3885831C90B61900378974 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8D3885881C90BB1F00378974 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ChatMessenger/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D38858A1C90D35200378974 /* ChatMessenger-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ChatMessenger-Bridging-Header.h"; sourceTree = "<group>"; };
 		8D38858B1C9373F700378974 /* clouds.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clouds.png; sourceTree = "<group>"; };
-		8D38858D1C93920F00378974 /* EventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewCell.swift; sourceTree = "<group>"; };
-		8D38858E1C93920F00378974 /* EventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventsTableViewCell.xib; sourceTree = "<group>"; };
 		8DA18E0D1C93B0F00050C6F3 /* event.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = event.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,49 +154,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8D1A6B7E1C98C15900F8D46E /* Constants */ = {
+		8D1A6B8C1C98D00D00F8D46E /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				8D3885831C90B61900378974 /* Constants.swift */,
-				8D3885811C90B5CC00378974 /* Errors.swift */,
-				8D38857F1C90B5AA00378974 /* Strings.swift */,
+				8D1A6B8D1C98D00D00F8D46E /* Constants.swift */,
+				8D1A6B8E1C98D00D00F8D46E /* Errors.swift */,
+				8D1A6B8F1C98D00D00F8D46E /* Strings.swift */,
 			);
-			name = Constants;
+			path = Constants;
 			sourceTree = "<group>";
 		};
-		8D1A6B7F1C98C16900F8D46E /* View Controllers */ = {
+		8D1A6B901C98D00D00F8D46E /* Customized_ChatKit */ = {
 			isa = PBXGroup;
 			children = (
-				8D1A6B811C98C1A900F8D46E /* Customized ChatKit */,
-				8D1A6B801C98C19700F8D46E /* views */,
-				8D38857B1C90B58500378974 /* RearMenuViewController.swift */,
-				8D38857C1C90B58500378974 /* RegisterViewController.swift */,
-				8D3885251C90B46F00378974 /* SignInViewController.swift */,
-				8D3885141C90B3BE00378974 /* ViewController.swift */,
+				8D1A6B911C98D00D00F8D46E /* ChatListOwnedByOthersDatasource.swift */,
+				8D1A6B921C98D00D00F8D46E /* ChatListOwnedByOthersViewController.swift */,
+				8D1A6B931C98D00D00F8D46E /* CustomChatListDelegate.swift */,
+				8D1A6B941C98D00D00F8D46E /* EventsTableViewCell.swift */,
+				8D1A6B951C98D00D00F8D46E /* EventsTableViewCell.xib */,
+				8D1A6B961C98D00D00F8D46E /* HomeChatListDatasource.swift */,
 			);
-			name = "View Controllers";
+			path = Customized_ChatKit;
 			sourceTree = "<group>";
 		};
-		8D1A6B801C98C19700F8D46E /* views */ = {
+		8D1A6BA01C98D01700F8D46E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				8D38858D1C93920F00378974 /* EventsTableViewCell.swift */,
-				8D38858E1C93920F00378974 /* EventsTableViewCell.xib */,
+				8D1A6BA11C98D01700F8D46E /* CustomChatViewController.swift */,
+				8D1A6BA31C98D01700F8D46E /* RegisterViewController.swift */,
+				8D1A6BA41C98D01700F8D46E /* SignInViewController.swift */,
+				8D1A6BA51C98D01700F8D46E /* ViewController.swift */,
 			);
-			name = views;
-			sourceTree = "<group>";
-		};
-		8D1A6B811C98C1A900F8D46E /* Customized ChatKit */ = {
-			isa = PBXGroup;
-			children = (
-				8D1A6B821C98C21900F8D46E /* CustomChatViewController.swift */,
-				8D1A6B841C98C39300F8D46E /* HomeChatListDatasource.swift */,
-				8D1A6B861C98C3EC00F8D46E /* ChatListOwnedByOthersDatasource.swift */,
-				8D1A6B881C98C42400F8D46E /* ChatListOwnedByOthersViewController.swift */,
-				8D1A6B8A1C98C44F00F8D46E /* CustomChatListDelegate.swift */,
-			);
-			name = "Customized ChatKit";
-			sourceTree = "<group>";
+			name = ViewControllers;
+			path = ChatMessenger/ViewControllers;
+			sourceTree = SOURCE_ROOT;
 		};
 		8D3885061C90B3BE00378974 = {
 			isa = PBXGroup;
@@ -219,10 +210,11 @@
 		8D3885111C90B3BE00378974 /* ChatMessenger */ = {
 			isa = PBXGroup;
 			children = (
-				8D1A6B7E1C98C15900F8D46E /* Constants */,
+				8D1A6B8C1C98D00D00F8D46E /* Constants */,
+				8D1A6B901C98D00D00F8D46E /* Customized_ChatKit */,
 				8D3885281C90B54100378974 /* Resources */,
 				8D3885541C90B54100378974 /* SWRevealViewController */,
-				8D1A6B7F1C98C16900F8D46E /* View Controllers */,
+				8D1A6BA01C98D01700F8D46E /* ViewControllers */,
 				8D3885241C90B46F00378974 /* MagnetMax.plist */,
 				8D3885121C90B3BE00378974 /* AppDelegate.swift */,
 				8D3885191C90B3BE00378974 /* Assets.xcassets */,
@@ -345,6 +337,7 @@
 		8D3885541C90B54100378974 /* SWRevealViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8D1A6BAB1C98D05300F8D46E /* RearMenuViewController.swift */,
 				8D3885551C90B54100378974 /* SWRevealViewController.h */,
 				8D3885561C90B54100378974 /* SWRevealViewController.m */,
 			);
@@ -424,6 +417,7 @@
 			files = (
 				8D38856F1C90B54100378974 /* message_wh@2x.png in Resources */,
 				8D3885791C90B54100378974 /* splash.png in Resources */,
+				8D1A6B9E1C98D00D00F8D46E /* EventsTableViewCell.xib in Resources */,
 				8D3885761C90B54100378974 /* slider_close@3x.png in Resources */,
 				8D38856E1C90B54100378974 /* message_wh.png in Resources */,
 				8D3885681C90B54100378974 /* ic_menu.png in Resources */,
@@ -443,7 +437,6 @@
 				8D3885591C90B54100378974 /* logo_magnet.png in Resources */,
 				8D3885601C90B54100378974 /* icon_group_magnet.png in Resources */,
 				8D3885711C90B54100378974 /* messages@2x.png in Resources */,
-				8D3885901C93920F00378974 /* EventsTableViewCell.xib in Resources */,
 				8D3885671C90B54100378974 /* disclosure@2x.png in Resources */,
 				8D3885751C90B54100378974 /* slider_close@2x.png in Resources */,
 				8D38858C1C9373F700378974 /* clouds.png in Resources */,
@@ -522,21 +515,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D3885151C90B3BE00378974 /* ViewController.swift in Sources */,
+				8D1A6BAA1C98D01700F8D46E /* ViewController.swift in Sources */,
+				8D1A6BA91C98D01700F8D46E /* SignInViewController.swift in Sources */,
+				8D1A6B981C98D00D00F8D46E /* Errors.swift in Sources */,
+				8D1A6B9F1C98D00D00F8D46E /* HomeChatListDatasource.swift in Sources */,
+				8D1A6BAC1C98D05300F8D46E /* RearMenuViewController.swift in Sources */,
+				8D1A6B9C1C98D00D00F8D46E /* CustomChatListDelegate.swift in Sources */,
+				8D1A6B9B1C98D00D00F8D46E /* ChatListOwnedByOthersViewController.swift in Sources */,
 				8D3885131C90B3BE00378974 /* AppDelegate.swift in Sources */,
-				8D38858F1C93920F00378974 /* EventsTableViewCell.swift in Sources */,
-				8D3885271C90B46F00378974 /* SignInViewController.swift in Sources */,
-				8D1A6B871C98C3EC00F8D46E /* ChatListOwnedByOthersDatasource.swift in Sources */,
-				8D38857E1C90B58500378974 /* RegisterViewController.swift in Sources */,
-				8D1A6B831C98C21900F8D46E /* CustomChatViewController.swift in Sources */,
-				8D3885821C90B5CC00378974 /* Errors.swift in Sources */,
-				8D1A6B891C98C42400F8D46E /* ChatListOwnedByOthersViewController.swift in Sources */,
+				8D1A6BA61C98D01700F8D46E /* CustomChatViewController.swift in Sources */,
+				8D1A6B991C98D00D00F8D46E /* Strings.swift in Sources */,
 				8D38857A1C90B54100378974 /* SWRevealViewController.m in Sources */,
-				8D38857D1C90B58500378974 /* RearMenuViewController.swift in Sources */,
-				8D3885801C90B5AA00378974 /* Strings.swift in Sources */,
-				8D1A6B8B1C98C44F00F8D46E /* CustomChatListDelegate.swift in Sources */,
-				8D3885841C90B61900378974 /* Constants.swift in Sources */,
-				8D1A6B851C98C39300F8D46E /* HomeChatListDatasource.swift in Sources */,
+				8D1A6B9A1C98D00D00F8D46E /* ChatListOwnedByOthersDatasource.swift in Sources */,
+				8D1A6BA81C98D01700F8D46E /* RegisterViewController.swift in Sources */,
+				8D1A6B9D1C98D00D00F8D46E /* EventsTableViewCell.swift in Sources */,
+				8D1A6B971C98D00D00F8D46E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
