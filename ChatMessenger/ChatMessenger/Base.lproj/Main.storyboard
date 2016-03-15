@@ -306,7 +306,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
-                                    <action selector="btnPressed" destination="WfW-cv-7ny" eventType="touchUpInside" id="ONI-2C-tY2"/>
+                                    <segue destination="JHm-r7-3th" kind="show" id="btb-fE-WIa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -355,6 +355,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rr5-dS-sav" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2471" y="1244"/>
+        </scene>
+        <!--Chat List Owned By Others View Controller-->
+        <scene sceneID="RkW-pF-NfF">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="JHm-r7-3th" customClass="ChatListOwnedByOthersViewController" customModule="ChatMessenger" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xGV-VX-C8u"/>
+                        <viewControllerLayoutGuide type="bottom" id="n6m-bX-My5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cAU-g2-CoQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="egw-nt-c3S">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="egw-nt-c3S" secondAttribute="trailing" id="MCz-0j-FFQ"/>
+                            <constraint firstItem="egw-nt-c3S" firstAttribute="leading" secondItem="cAU-g2-CoQ" secondAttribute="leading" id="aPJ-eY-y5O"/>
+                            <constraint firstItem="n6m-bX-My5" firstAttribute="top" secondItem="egw-nt-c3S" secondAttribute="bottom" id="rDw-D0-mYy"/>
+                            <constraint firstItem="egw-nt-c3S" firstAttribute="top" secondItem="xGV-VX-C8u" secondAttribute="bottom" id="zUt-fp-fil"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="egw-nt-c3S" id="KCN-rr-Wbw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hzo-mv-P65" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3244" y="827"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VzZ-oM-27W">
