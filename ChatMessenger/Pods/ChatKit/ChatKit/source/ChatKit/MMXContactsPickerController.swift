@@ -16,6 +16,7 @@
 */
 
 import UIKit
+
 import MagnetMax
 
 
@@ -149,8 +150,12 @@ public class MMXContactsPickerController: CoreContactsViewController {
     }
     
     
-    //MARK: - Data Method Overrides
+    //MARK: - Core Method Overrides
     
+    
+    override public func append(unfilteredUsers: [MMUser]) {
+        super.append(unfilteredUsers)
+    }
     
     override public func cellDidCreate(cell: UITableViewCell) {
         self.datasource?.mmxContactsDidCreateCell?(cell)
@@ -226,6 +231,10 @@ public class MMXContactsPickerController: CoreContactsViewController {
     override public func onUserSelected(user: MMUser) {
         self.updateButtonItems()
         self.delegate?.mmxContactsControllerSelectedUser?(user)
+    }
+    
+    override public func registerCells(tableView: UITableView) {
+        self.datasource?.mmxContactsControllerRegisterCells?(tableView)
     }
     
     override public func shouldShowHeaderTitles() -> Bool {

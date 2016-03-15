@@ -16,6 +16,7 @@
 */
 
 import UIKit
+
 import MagnetMax
 
 //MARK: UserLetterGroup
@@ -109,6 +110,7 @@ public class CoreContactsViewController: MMTableViewController, UISearchBarDeleg
                 weakSelf.loadMore(weakSelf.searchBar.text, offset: weakSelf.currentUserCount)
             }
         }
+        registerCells(self.tableView)
         self.automaticallyAdjustsScrollViewInsets = false
         self.tableView.contentInset = UIEdgeInsetsZero
     }
@@ -234,6 +236,8 @@ public class CoreContactsViewController: MMTableViewController, UISearchBarDeleg
     public func loadMore(searchText : String?, offset : Int) { }
     
     public func numberOfFooters() -> Int { return 0 }
+    
+    public func registerCells(tableView: UITableView) { }
     
     public func shouldShowIndexTitles() -> Bool {
         return true

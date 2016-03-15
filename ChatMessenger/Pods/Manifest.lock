@@ -12,12 +12,13 @@ PODS:
   - AFNetworking/Serialization (2.6.1)
   - AFOAuth2Manager (2.2.1):
     - AFNetworking/NSURLConnection (~> 2.2)
-  - ChatKit (1.0.0):
-    - ChatKit/Public (= 1.0.0)
-    - ChatKit/UI_Core (= 1.0.0)
-  - ChatKit/Public (1.0.0):
+  - ChatKit (1.0.1):
+    - ChatKit/Public (= 1.0.1)
+    - ChatKit/UI_Core (= 1.0.1)
+  - ChatKit/Public (1.0.1):
     - ChatKit/UI_Core (= 0.6.0)
-  - ChatKit/UI_Core (1.0.0):
+  - ChatKit/UI_Core (1.0.1):
+    - CocoaLumberjack/Swift
     - DZVideoPlayerViewController
     - MagnetMax (~> 2.5.2)
     - NYTPhotoViewer (~> 1.1.0)
@@ -30,6 +31,8 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.2.0):
     - CocoaLumberjack/Default
+  - CocoaLumberjack/Swift (2.2.0):
+    - CocoaLumberjack/Extensions
   - DZVideoPlayerViewController (0.4.0)
   - FLAnimatedImage (1.0.12)
   - MagnetMax (2.5.2):
@@ -90,12 +93,12 @@ PODS:
   - NYTPhotoViewer/Core (1.1.0)
 
 DEPENDENCIES:
-  - ChatKit (~> 1.0.0)
+  - ChatKit (~> 1.0.1)
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   AFOAuth2Manager: 9efc94eb158fbfca13e685c22d91721c7a64fc8c
-  ChatKit: a8470c6d0db81a65b22b6aed8d8e30a73042ae11
+  ChatKit: 65f0418e65e14e7552efe06edd3c42e178ff75d5
   CocoaAsyncSocket: 7cbf214b27f8e7f7574db6a3fd96352ffaed433d
   CocoaLumberjack: 17fe8581f84914d5d7e6360f7c70022b173c3ae0
   DZVideoPlayerViewController: 4886c5016a632cbd94a85e6071806e4929c01653

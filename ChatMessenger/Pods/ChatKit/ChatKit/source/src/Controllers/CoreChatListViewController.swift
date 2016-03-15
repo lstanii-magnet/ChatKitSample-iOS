@@ -16,6 +16,8 @@
 */
 
 import UIKit
+
+import CocoaLumberjack
 import MagnetMax
 
 
@@ -120,9 +122,10 @@ public class CoreChatListViewController: MMTableViewController, UISearchBarDeleg
                 self.detailResponses.appendContentsOf(detailResponses)
                 self.detailResponses = self.sort(self.detailResponses)
                 self.endDataLoad()
+                DDLogVerbose("[Retrieved] channel details succeeded")
                 }, failure: { error in
                     self.endDataLoad()
-                    print(error)
+                    DDLogError("[Error] - retrieving channel details - \(error.localizedDescription)")
             })
         } else {
             self.endDataLoad()
@@ -184,8 +187,10 @@ public class CoreChatListViewController: MMTableViewController, UISearchBarDeleg
                         }
                     }
                     self.tableView.reloadData()
+                    
+                    DDLogVerbose("[Refresh] channel details succeeded")
                     }, failure: { (error) -> Void in
-                        //Error
+                        DDLogError("[Error] - retrieving channel details - \(error.localizedDescription)")
                 })
                 break
             }
@@ -202,6 +207,8 @@ public class CoreChatListViewController: MMTableViewController, UISearchBarDeleg
         self.currentDetailCount = 0
         self.loadMore(self.searchBar.text, offset: self.currentDetailCount)
     }
+    
+    public func shouldAppendChannel(channel : MMXChannel) -> Bool { return true }
     
     public func shouldUpdateSearchContinuously() -> Bool {
         return true
@@ -220,9 +227,12 @@ public class CoreChatListViewController: MMTableViewController, UISearchBarDeleg
     
     
     func didReceiveMessage(mmxMessage: MMXMessage) {
+        DDLogVerbose("[Message] message recieved [CoreChatListViewController]")
         if let channel = mmxMessage.channel {
             if !refreshChannel(channel) {
-                self.append([channel])
+                if self.shouldAppendChannel(channel) {
+                    self.append([channel])
+                }
             }
         }
     }
@@ -285,7 +295,7 @@ public class CoreChatListViewController: MMTableViewController, UISearchBarDeleg
                     self.didSelectUserAvatar(user)
                 }
                 }, failure: { error in
-                    print("[Error] Retrieving User")
+                    DDLogError("[Error] Retrieving User")
             })
         }
     }

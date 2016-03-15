@@ -16,6 +16,8 @@
 */
 
 import UIKit
+
+import CocoaLumberjack
 import MagnetMax
 
 
@@ -26,7 +28,6 @@ public class MMXChatListViewController: CoreChatListViewController, ContactsCont
     
     
     //MARK: Private Variables
-    
     
     
     private var requestNumber : Int = 0
@@ -146,8 +147,12 @@ public class MMXChatListViewController: CoreChatListViewController, ContactsCont
     }
     
     
-    //MARK: - Data Method Overrides
+    //MARK: - Core Method Overrides
     
+    
+    override public func append(mmxChannels: [MMXChannel]) {
+        super.append(mmxChannels)
+    }
     
     override public func canLeaveChannel(channel: MMXChannel, channelDetails : MMXChannelDetailResponse) -> Bool {
         if let canLeave = self.delegate?.mmxListCanLeaveChannel(channel, channelDetails : channelDetails) {
@@ -241,6 +246,14 @@ public class MMXChatListViewController: CoreChatListViewController, ContactsCont
         }
         
         return super.sort(channelDetails)
+    }
+    
+    override public func shouldAppendChannel(channel: MMXChannel) -> Bool {
+        if let append = self.datasource?.mmxListShouldAppendNewChannel?(channel) {
+            return append
+        }
+        
+        return super.shouldAppendChannel(channel)
     }
     
     override public func shouldUpdateSearchContinuously() -> Bool {

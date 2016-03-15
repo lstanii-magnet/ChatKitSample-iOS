@@ -164,6 +164,10 @@ class CustomListDatasource : DefaultChatListControllerDatasource {
         }
     }
     
+    func mmxListShouldAppendNewChannel(channel: MMXChannel) -> Bool {
+        return channel.ownerUserID == MMUser.currentUser()?.userID
+    }
+    
     override func mmxControllerLoadMore(searchText: String?, offset: Int) {
         super.mmxControllerLoadMore(searchText, offset: offset)
         
@@ -189,6 +193,10 @@ class CustomList2Datasource : DefaultChatListControllerDatasource {
                 print(error)
                 completion(channels: [])
         }
+    }
+    
+    func mmxListShouldAppendNewChannel(channel: MMXChannel) -> Bool {
+        return channel.ownerUserID != MMUser.currentUser()?.userID
     }
 }
 
@@ -234,7 +242,7 @@ class ViewController: MMXChatListViewController {
     
     
     override func viewWillAppear(animated: Bool) {
-       super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
         
         if !revealLoaded {
             revealLoaded = true
