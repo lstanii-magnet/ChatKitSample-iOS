@@ -18,12 +18,17 @@
 import MagnetMax
 import UIKit
 
-public class IconView : UIView, UIGestureRecognizerDelegate {
+protocol ContactsBubbleViewDelegate : class {
+    func didSelectBubbleViewAvatar(view : ContactsBubbleView)
+}
+
+public class ContactsBubbleView : UIView, UIGestureRecognizerDelegate {
     
     
     //MARK: Public Variables
     
     
+    weak var delegate : ContactsBubbleViewDelegate?
     var imageView : UIImageView?
     var title : UILabel?
     weak var user : MMUser?
@@ -32,8 +37,8 @@ public class IconView : UIView, UIGestureRecognizerDelegate {
     //MARK: Creation
     
     
-    static func newIconView() -> IconView {
-        let view = IconView(frame: CGRect(x: 0, y: 0, width: 50, height: 0))
+    static func newBubbleView() -> ContactsBubbleView {
+        let view = ContactsBubbleView(frame: CGRect(x: 0, y: 0, width: 50, height: 0))
         view.translatesAutoresizingMaskIntoConstraints = false
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         imageView.layer.cornerRadius = imageView.frame.size.width / 2.0
@@ -66,9 +71,20 @@ public class IconView : UIView, UIGestureRecognizerDelegate {
         view.addConstraints([centerX, imageYSpace, imageWidth, imageHeight, labelYSpace, labelBottom, labelLeading, labelTrailing,labelHeight])
         view.title = label
         view.imageView = imageView
+        
+        let tap = UITapGestureRecognizer(target: view, action: "didTapAvatar:")
+        tap.cancelsTouchesInView = true
+        tap.delaysTouchesBegan = true
+        view.imageView?.userInteractionEnabled = true
+        view.imageView?.addGestureRecognizer(tap)
+        
         return view
     }
     
+    
+    func didTapAvatar(gesture : UITapGestureRecognizer) {
+        self.delegate?.didSelectBubbleViewAvatar(self)
+    }
     
     //MARK: Action
     

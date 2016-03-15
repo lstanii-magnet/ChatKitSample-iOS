@@ -15,25 +15,49 @@
 * permissions and limitations under the License.
 */
 
+import MagnetMax
 import UIKit
 
-class ContactsCell: UITableViewCell {
-    @IBOutlet var userName : UILabel?
-    @IBOutlet var avatar : UIImageView?
+protocol ContactsCellDelegate : class {
+    func didSelectContactsCellAvatar(cell : ContactsCell)
+}
+
+public class ContactsCell: UITableViewCell {
     
-    override func awakeFromNib() {
+    
+    //MARK: Public Properties
+    
+    
+    @IBOutlet public private(set) var avatar : UIImageView?
+    @IBOutlet public private(set)var userName : UILabel?
+    public internal(set) var user : MMUser?
+    
+    
+    //MARK: Internal properties
+    
+    
+    weak var delegate : ContactsCellDelegate?
+    
+    
+    //MARK: Actions
+    
+    
+    func didSelectAvatar() {
+        self.delegate?.didSelectContactsCellAvatar(self)
+    }
+    
+    override public func awakeFromNib() {
         super.awakeFromNib()
+        
+        let tap = UITapGestureRecognizer(target: self, action: "didSelectAvatar")
+        tap.cancelsTouchesInView = true
+        tap.delaysTouchesBegan = true
+        self.avatar?.userInteractionEnabled = true
+        self.avatar?.addGestureRecognizer(tap)
         
         if let avatar = self.avatar {
             avatar.layer.cornerRadius = avatar.frame.size.width / 2.0
             avatar.clipsToBounds = true
         }
     }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
 }

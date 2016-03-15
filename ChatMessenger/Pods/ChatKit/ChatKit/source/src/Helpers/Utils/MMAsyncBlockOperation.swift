@@ -15,25 +15,33 @@
 * permissions and limitations under the License.
 */
 
-import UIKit
+import MagnetMax
+import Foundation
 
-public class LoadingView : UIView {
+public class MMAsyncBlockOperation : MMAsynchronousOperation {
     
     
-    public internal(set) var indicator : UIActivityIndicatorView?
+    //Mark: Private variables
     
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
-        indicator.frame = frame
-        indicator.autoresizingMask = [.FlexibleHeight, .FlexibleWidth]
-        self.addSubview(indicator)
-        self.indicator = indicator
+    private var block : ((operation : MMAsynchronousOperation) -> Void)
+    
+    
+    //Mark: Overrides
+    
+    
+    init(with block : ((operation : MMAsynchronousOperation) -> Void)) {
+        self.block = block
+        super.init()
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    public override func execute() {
+        { [weak self] in
+            if let weakSelf = self where !weakSelf.cancelled {
+                weakSelf.block(operation: weakSelf)
+            } else {
+                self?.finish()
+            }
+        }()
     }
 }

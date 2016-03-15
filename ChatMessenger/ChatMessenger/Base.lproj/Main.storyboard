@@ -20,13 +20,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in to your account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="364-zk-OEo">
-                                <rect key="frame" x="212" y="160" width="176" height="21"/>
+                                <rect key="frame" x="212" y="160" width="176" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YoZ-5u-zVt">
-                                <rect key="frame" x="20" y="189" width="560" height="30"/>
+                                <rect key="frame" x="20" y="188" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                 <connections>
@@ -34,24 +34,15 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bSi-l7-tcX">
-                                <rect key="frame" x="20" y="227" width="560" height="30"/>
+                                <rect key="frame" x="20" y="226" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="zdW-bJ-TmU" id="tmF-fg-53d"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mSc-Ru-aUV">
-                                <rect key="frame" x="244" y="270" width="112" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <switch hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ptL-HN-fk1">
-                                <rect key="frame" x="187" y="265" width="51" height="31"/>
-                            </switch>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xi-fy-D6s">
-                                <rect key="frame" x="270" y="321" width="61" height="36"/>
+                                <rect key="frame" x="270" y="292.5" width="61" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign in"/>
                                 <connections>
@@ -59,26 +50,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eio-A4-d5r">
-                                <rect key="frame" x="248" y="365" width="105" height="30"/>
+                                <rect key="frame" x="248" y="336.5" width="105" height="30"/>
                                 <state key="normal" title="Create account"/>
                                 <connections>
                                     <segue destination="kMI-nT-hKQ" kind="show" id="tBx-DJ-Taw"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-aI-hAq">
-                                <rect key="frame" x="290" y="299" width="20" height="20"/>
-                            </activityIndicatorView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check_on.png" translatesAutoresizingMaskIntoConstraints="NO" id="4DX-hq-f34">
-                                <rect key="frame" x="216" y="271" width="20" height="20"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="L3R-qn-gk8"/>
-                                    <constraint firstAttribute="height" constant="20" id="xT6-8u-nEH"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFd-RE-ns8" userLabel="rememberMeBtn">
-                                <rect key="frame" x="187" y="265" width="179" height="31"/>
-                                <connections>
-                                    <action selector="selectCheckbox:" destination="zdW-bJ-TmU" eventType="touchUpInside" id="dwt-NI-cmK"/>
                                 </connections>
                             </button>
                             <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" image="logo_magnet.png" translatesAutoresizingMaskIntoConstraints="NO" id="hsA-mT-YnS">
@@ -88,44 +63,33 @@
                                     <constraint firstAttribute="height" constant="60" id="rqq-bG-RaE"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Dd6-aI-hAq">
+                                <rect key="frame" x="290" y="264" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2xi-fy-D6s" firstAttribute="top" secondItem="mSc-Ru-aUV" secondAttribute="bottom" constant="30" id="19b-zc-5HR"/>
-                            <constraint firstItem="mSc-Ru-aUV" firstAttribute="centerY" secondItem="ptL-HN-fk1" secondAttribute="centerY" id="1eL-4s-w0b"/>
+                            <constraint firstItem="2xi-fy-D6s" firstAttribute="top" secondItem="Dd6-aI-hAq" secondAttribute="bottom" constant="8" id="18L-0i-eT7"/>
                             <constraint firstItem="YoZ-5u-zVt" firstAttribute="top" secondItem="364-zk-OEo" secondAttribute="bottom" constant="8" id="4uc-Wv-SbI"/>
-                            <constraint firstItem="fFd-RE-ns8" firstAttribute="top" secondItem="ptL-HN-fk1" secondAttribute="top" id="7Tk-r4-avx"/>
-                            <constraint firstItem="4DX-hq-f34" firstAttribute="centerY" secondItem="mSc-Ru-aUV" secondAttribute="centerY" id="Bfg-1G-1pq"/>
-                            <constraint firstItem="ptL-HN-fk1" firstAttribute="top" secondItem="bSi-l7-tcX" secondAttribute="bottom" constant="8" id="Dm8-OJ-zXk"/>
-                            <constraint firstItem="mSc-Ru-aUV" firstAttribute="leading" secondItem="4DX-hq-f34" secondAttribute="trailing" constant="8" id="GPQ-eb-yrR"/>
                             <constraint firstItem="hsA-mT-YnS" firstAttribute="top" secondItem="042-AQ-elq" secondAttribute="topMargin" constant="60" id="KRi-pN-eMQ"/>
                             <constraint firstItem="2xi-fy-D6s" firstAttribute="centerX" secondItem="042-AQ-elq" secondAttribute="centerX" id="NFP-K9-s7r"/>
-                            <constraint firstItem="fFd-RE-ns8" firstAttribute="trailing" secondItem="mSc-Ru-aUV" secondAttribute="trailing" constant="10" id="OyF-Vu-U5v"/>
-                            <constraint firstItem="mSc-Ru-aUV" firstAttribute="centerX" secondItem="042-AQ-elq" secondAttribute="centerX" id="POR-IF-nFB"/>
                             <constraint firstItem="364-zk-OEo" firstAttribute="top" secondItem="hsA-mT-YnS" secondAttribute="bottom" constant="40" id="Pw8-GQ-RgK"/>
                             <constraint firstItem="eio-A4-d5r" firstAttribute="centerX" secondItem="042-AQ-elq" secondAttribute="centerX" id="S60-BT-S1O"/>
                             <constraint firstItem="hsA-mT-YnS" firstAttribute="centerX" secondItem="042-AQ-elq" secondAttribute="centerX" id="UsA-Oy-dUb"/>
-                            <constraint firstItem="Dd6-aI-hAq" firstAttribute="top" secondItem="mSc-Ru-aUV" secondAttribute="bottom" constant="8" id="Xxn-ZH-rZ7"/>
-                            <constraint firstItem="mSc-Ru-aUV" firstAttribute="leading" secondItem="ptL-HN-fk1" secondAttribute="trailing" constant="8" id="bRG-EI-jOO"/>
                             <constraint firstItem="364-zk-OEo" firstAttribute="centerX" secondItem="042-AQ-elq" secondAttribute="centerX" id="dCF-AO-Uy9"/>
                             <constraint firstAttribute="leadingMargin" secondItem="YoZ-5u-zVt" secondAttribute="leading" id="eCj-pH-D8c"/>
                             <constraint firstItem="eio-A4-d5r" firstAttribute="top" secondItem="2xi-fy-D6s" secondAttribute="bottom" constant="8" id="fL7-4g-IBh"/>
-                            <constraint firstItem="fFd-RE-ns8" firstAttribute="bottom" secondItem="ptL-HN-fk1" secondAttribute="bottom" id="gey-MK-fa6"/>
                             <constraint firstItem="Dd6-aI-hAq" firstAttribute="centerX" secondItem="042-AQ-elq" secondAttribute="centerX" id="kO7-OJ-ZTw"/>
+                            <constraint firstItem="Dd6-aI-hAq" firstAttribute="top" secondItem="bSi-l7-tcX" secondAttribute="bottom" constant="8" id="p60-hk-Fki"/>
                             <constraint firstItem="bSi-l7-tcX" firstAttribute="top" secondItem="YoZ-5u-zVt" secondAttribute="bottom" constant="8" id="pN9-29-Sqb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bSi-l7-tcX" secondAttribute="trailing" id="tBD-Yu-rPa"/>
-                            <constraint firstItem="fFd-RE-ns8" firstAttribute="centerY" secondItem="mSc-Ru-aUV" secondAttribute="centerY" id="tXo-jV-4Dz"/>
-                            <constraint firstItem="fFd-RE-ns8" firstAttribute="leading" secondItem="ptL-HN-fk1" secondAttribute="leading" id="uVM-CQ-yrS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YoZ-5u-zVt" secondAttribute="trailing" id="xaA-VR-Ft0"/>
-                            <constraint firstItem="mSc-Ru-aUV" firstAttribute="leading" secondItem="4DX-hq-f34" secondAttribute="trailing" constant="8" id="yKi-aJ-t90"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bSi-l7-tcX" secondAttribute="leading" id="zUx-f2-OS3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Kod-kO-D7w"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Dd6-aI-hAq" id="BoH-vY-WNf"/>
-                        <outlet property="btnRemember" destination="ptL-HN-fk1" id="Z8j-WK-6Xb"/>
-                        <outlet property="chbRememberMe" destination="4DX-hq-f34" id="qva-G9-1hK"/>
                         <outlet property="txtfEmail" destination="YoZ-5u-zVt" id="1xq-yg-OSj"/>
                         <outlet property="txtfPassword" destination="bSi-l7-tcX" id="nas-VY-nJe"/>
                     </connections>
@@ -332,8 +296,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="200"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="My subscribed 
-chats others own.">
+                                        <fragment content="My subscribed  chats others own.">
                                             <attributes>
                                                 <color key="NSColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                 <font key="NSFont" size="19" name="HelveticaNeue"/>
@@ -552,7 +515,6 @@ chats others own.">
         </scene>
     </scenes>
     <resources>
-        <image name="check_on.png" width="38" height="38"/>
         <image name="clouds.png" width="600" height="200"/>
         <image name="icon_info.png" width="48" height="48"/>
         <image name="logo_magnet.png" width="81" height="83"/>

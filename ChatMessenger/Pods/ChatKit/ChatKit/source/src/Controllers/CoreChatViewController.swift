@@ -24,7 +24,7 @@ import UIKit
 //MARK: ChatViewController
 
 
-public class ChatViewController: MMJSQViewController {
+public class CoreChatViewController: MMJSQViewController {
     
     
     //MARK: Public Properties
@@ -168,6 +168,8 @@ public class ChatViewController: MMJSQViewController {
             infiniteLoading.startUpdating()
         }
     }
+    
+    public func didSelectUserAvatar(user : MMUser) { }
     
     public func hasMore() -> Bool { return false }
     
@@ -365,7 +367,7 @@ public class ChatViewController: MMJSQViewController {
 }
 
 
-private extension ChatViewController {
+private extension CoreChatViewController {
     
     
     // MARK: Private Methods

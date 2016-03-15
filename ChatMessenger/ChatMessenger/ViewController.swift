@@ -59,6 +59,13 @@ class CustomListDatasource : DefaultChatListControllerDatasource {
     
     var loadingGroup : dispatch_group_t = dispatch_group_create()
     
+    func mmxListDidCreateCell(cell: UITableViewCell) {
+        if let listCell = cell as? ChatListCell {
+            listCell.lblMessage?.textColor = UIColor.purpleColor()
+            listCell.lblSubscribers?.textColor = UIColor(red: 68/255.0, green: 235/255.0, blue: 255.0/255.0, alpha: 1.0)
+        }
+    }
+    
     func mmxListSortChannelDetails(channelDetails: [MMXChannelDetailResponse]) -> [MMXChannelDetailResponse] {
         
         let details = channelDetails.sort({ (detail1, detail2) -> Bool in

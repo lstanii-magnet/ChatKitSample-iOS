@@ -19,7 +19,7 @@ import UIKit
 import MagnetMax
 
 
-public class HomeViewController: MMTableViewController, UISearchBarDelegate {
+public class CoreChatListViewController: MMTableViewController, UISearchBarDelegate, ChatListCellDelegate {
     
     
     //MARK: Public Variables
@@ -49,7 +49,7 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
     }
     
     public override init() {
-        super.init(nibName: String(HomeViewController.self), bundle: NSBundle(forClass: HomeViewController.self))
+        super.init(nibName: String(CoreChatListViewController.self), bundle: NSBundle(forClass: CoreChatListViewController.self))
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -59,20 +59,15 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        self.footers = ["USER_DEFINED","LOADING"]
-        if MMUser.sessionStatus() != .LoggedIn {
-            assertionFailure("MUST LOGIN USER FIRST")
-        }
-        
         self.tableView.allowsMultipleSelection = false
         // Indicate that you are ready to receive messages now!
         MMX.start()
         // Handling disconnection
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didDisconnect:", name: MMUserDidReceiveAuthenticationChallengeNotification, object: nil)
         
-        var nib = UINib.init(nibName: "SummaryResponseCell", bundle: NSBundle(forClass: HomeViewController.self))
-        self.tableView.registerNib(nib, forCellReuseIdentifier: "SummaryResponseCell")
-        nib = UINib.init(nibName: "LoadingCell", bundle: NSBundle(forClass: HomeViewController.self))
+        var nib = UINib.init(nibName: "ChatListCell", bundle: NSBundle(forClass: CoreChatListViewController.self))
+        self.tableView.registerNib(nib, forCellReuseIdentifier: "ChatListCell")
+        nib = UINib.init(nibName: "LoadingCell", bundle: NSBundle(forClass: CoreChatListViewController.self))
         self.tableView.registerNib(nib, forCellReuseIdentifier: "LoadingCellIdentifier")
         
         // Add search bar
@@ -134,6 +129,8 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
         }
     }
     
+    public func cellDidCreate(cell : UITableViewCell) { }
+    
     public func canLeaveChannel(channel : MMXChannel, channelDetails : MMXChannelDetailResponse) -> Bool {
         return true
     }
@@ -146,6 +143,12 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
         return 80
     }
     
+    public func didSelectUserAvatar(user : MMUser) { }
+    
+    public func heightForFooter(index : Int) -> CGFloat {
+        return 0.0
+    }
+    
     public func imageForChannelDetails(imageView : UIImageView, channelDetails : MMXChannelDetailResponse) {
         imageView.image = nil
     }
@@ -155,6 +158,8 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
     }
     
     public func loadMore(searchText : String?, offset : Int) { }
+    
+    public func numberOfFooters() -> Int { return 0 }
     
     public func onChannelDidLeave(channel : MMXChannel, channelDetails : MMXChannelDetailResponse) { }
     
@@ -206,8 +211,8 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
         return detailsOrderByDate(channelDetails)
     }
     
-    public func tableViewFooter() -> UIView? {
-        return nil
+    public func tableViewFooter(index : Int) -> UIView {
+        return UIView()
     }
     
     
@@ -268,17 +273,36 @@ public class HomeViewController: MMTableViewController, UISearchBarDelegate {
         self.search(searchBar.text)
     }
     
+    
+    //MARK: ChatListCellDelegate
+    
+    
+    func didSelectCellAvatar(cell: ChatListCell) {
+        if let user = cell.detailResponse.subscribers.first {
+            MMUser.usersWithUserIDs([user.userId], success: {
+                users in
+                if let user = users.first {
+                    self.didSelectUserAvatar(user)
+                }
+                }, failure: { error in
+                    print("[Error] Retrieving User")
+            })
+        }
+    }
 }
 
-
-
-public extension HomeViewController {
+public extension CoreChatListViewController {
     
     
     // MARK: - Table view data source
     
     
     public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        self.footers = ["LOADING"]
+        for var i = 0; i < self.numberOfFooters(); i++ {
+            self.footers.insert( "USER_DEFINED", atIndex: 0)
+        }
+        
         return 1 + self.footers.count
     }
     
@@ -297,15 +321,18 @@ public extension HomeViewController {
         
         let detailResponse = detailsForIndexPath(indexPath)
         if let cell : UITableViewCell = cellForChannel(detailResponse.channel, channelDetails : detailResponse, indexPath : indexPath) {
+            cellDidCreate(cell)
+            
             return cell
         }
-        let cell = tableView.dequeueReusableCellWithIdentifier("SummaryResponseCell", forIndexPath: indexPath) as! SummaryResponseCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("ChatListCell", forIndexPath: indexPath) as! ChatListCell
         cell.backgroundColor = cellBackgroundColor
         cell.detailResponse = detailResponse
-        
+        cell.delegate = self
         if let imageView = cell.avatarView {
             imageForChannelDetails(imageView, channelDetails: detailResponse)
         }
+        cellDidCreate(cell)
         
         return cell
     }
@@ -346,8 +373,10 @@ public extension HomeViewController {
             let view = LoadingView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
             view.indicator?.startAnimating()
             return view
-        } else if identifierForFooterSection(section) == "USER_DEFINED" &&  tableViewFooter() != nil {
-            return tableViewFooter()
+        } else if identifierForFooterSection(section) == "USER_DEFINED" {
+            if let index = footerSectionIndex(section) {
+                return tableViewFooter(index)
+            }
         }
         
         return nil
@@ -356,16 +385,17 @@ public extension HomeViewController {
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         if identifierForFooterSection(section) == "LOADING" &&  !infiniteLoading.isFinished {
             return 50.0
-        } else if identifierForFooterSection(section) == "USER_DEFINED" &&  tableViewFooter() != nil {
-            return 50.0
+        } else if identifierForFooterSection(section) == "USER_DEFINED" {
+            if let index = footerSectionIndex(section) {
+                return self.heightForFooter(index)
+            }
         }
-        
         return 0.0
     }
 }
 
 
-private extension HomeViewController {
+private extension CoreChatListViewController {
     
     
     // MARK: - Private Methods

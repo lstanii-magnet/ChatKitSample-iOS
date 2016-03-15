@@ -22,7 +22,7 @@ import MagnetMax
 //MARK: MagnetChatViewController
 
 
-public class MMXChatViewController: ChatViewController {
+public class MMXChatViewController: CoreChatViewController {
     
     
     //Private Variables
@@ -127,11 +127,15 @@ public class MMXChatViewController: ChatViewController {
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        self.datasource = DefaultChatViewControllerDatasource()
+        if self.datasource == nil {
+            self.datasource = DefaultChatViewControllerDatasource()
+        }
         if let datasource = self.datasource as? DefaultChatViewControllerDatasource {
             datasource.controller = self
         }
-        self.delegate = DefaultChatViewControllerDelegate()
+        if self.delegate == nil {
+            self.delegate = DefaultChatViewControllerDelegate()
+        }
         if let delegate = self.delegate as? DefaultChatViewControllerDelegate {
             delegate.controller = self
         }
@@ -145,6 +149,8 @@ public class MMXChatViewController: ChatViewController {
     
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        assert(self.navigationController != nil, "MMXChatViewController must be presented using a Navagation Controller")
         
         generateNavBars()
     }
@@ -202,6 +208,10 @@ public class MMXChatViewController: ChatViewController {
     
     //MARK:  DataMethod Overrides
     
+    
+    override public func didSelectUserAvatar(user: MMUser) {
+        self.delegate?.mmxAvatarDidClick?(user)
+    }
     
     override public func onChannelCreated(mmxChannel: MMXChannel) {
         self.useNavigationBarNotifier = true

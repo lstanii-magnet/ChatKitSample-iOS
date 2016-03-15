@@ -22,7 +22,7 @@ import MagnetMax
 //MARK: MagnetContactsPickerController
 
 
-public class MMXContactsPickerController: ContactsViewController {
+public class MMXContactsPickerController: CoreContactsViewController {
     
     
     //Private Variables
@@ -69,7 +69,9 @@ public class MMXContactsPickerController: ContactsViewController {
         barButtonCancel = btnCancel
         barButtonNext = btnNext
         
-        self.datasource = DefaultContactsPickerControllerDatasource()
+        if self.datasource == nil {
+            self.datasource = DefaultContactsPickerControllerDatasource()
+        }
         if let dataSource = self.datasource as? DefaultContactsPickerControllerDatasource {
             dataSource.controller = self
         }
@@ -88,6 +90,8 @@ public class MMXContactsPickerController: ContactsViewController {
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        assert(self.navigationController != nil, "MMXContactsPickerController must be presented using a Navagation Controller")
+        
         generateNavBars()
         self.updateButtonItems()
     }
@@ -98,8 +102,8 @@ public class MMXContactsPickerController: ContactsViewController {
     
     private func generateNavBars() {
         if let btnCancel = barButtonCancel, let btnNext = barButtonNext {
-                navigationItem.rightBarButtonItem = btnNext
-                navigationItem.leftBarButtonItem = btnCancel
+            navigationItem.rightBarButtonItem = btnNext
+            navigationItem.leftBarButtonItem = btnCancel
         }
     }
     
@@ -148,6 +152,10 @@ public class MMXContactsPickerController: ContactsViewController {
     //MARK: - Data Method Overrides
     
     
+    override public func cellDidCreate(cell: UITableViewCell) {
+        self.datasource?.mmxContactsDidCreateCell?(cell)
+    }
+    
     override public func cellForUser(user: MMUser, indexPath: NSIndexPath) -> UITableViewCell? {
         return self.datasource?.mmxContactsCellForUser?(tableView, user: user, indexPath: indexPath)
     }
@@ -157,6 +165,10 @@ public class MMXContactsPickerController: ContactsViewController {
             return height
         }
         return super.cellHeightForUser(user, indexPath: indexPath)
+    }
+    
+    override public func didSelectUserAvatar(user: MMUser) {
+        self.delegate?.mmxAvatarDidClick?(user)
     }
     
     override public func imageForUser(imageView: UIImageView, user: MMUser) {
@@ -174,6 +186,14 @@ public class MMXContactsPickerController: ContactsViewController {
         return false
     }
     
+    override public func heightForFooter(index: Int) -> CGFloat {
+        if let height = self.datasource?.mmxTableViewFooterHeight?(index) {
+            return height
+        }
+        
+        return 0.0
+    }
+    
     override public func loadMore(searchText : String?, offset : Int) {
         newLoadingContext()
         if searchText != nil {
@@ -188,6 +208,14 @@ public class MMXContactsPickerController: ContactsViewController {
         } else {
             self.datasource?.mmxControllerLoadMore(searchText, offset : offset)
         }
+    }
+    
+    override public func numberOfFooters() -> Int {
+        if let number = self.datasource?.mmxTableViewNumberOfFooters?() {
+            return number
+        }
+        
+        return 0
     }
     
     override public func onUserDeselected(user: MMUser) {
@@ -225,7 +253,11 @@ public class MMXContactsPickerController: ContactsViewController {
         return false
     }
     
-    override public func tableViewFooter() -> UIView? {
-        return self.datasource?.mmxTableViewFooter?()
+    override public func tableViewFooter(index: Int) -> UIView {
+        if let footer = self.datasource?.mmxTableViewFooter?(index) {
+            return footer
+        }
+        
+        return super.tableViewFooter(index)
     }
 }

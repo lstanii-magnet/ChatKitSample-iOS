@@ -19,13 +19,13 @@ import MagnetMax
 import UIKit
 
 
-//MARK: SummaryResponseImageView
+//MARK: ChatListCellImageView
 
 
-class SummaryResponseImageView : MMRoundedImageView {
+class ChatListCellImageView : MMRoundedImageView {
     
     
-    //MARK: Public properties
+    //MARK: Internal properties
     
     
     @IBOutlet var imageMinWidth : NSLayoutConstraint?
@@ -45,26 +45,31 @@ class SummaryResponseImageView : MMRoundedImageView {
 }
 
 
-//MARK: SummaryResponseCell
+protocol ChatListCellDelegate : class {
+    func didSelectCellAvatar(cell : ChatListCell)
+}
 
 
-class SummaryResponseCell: ChannelDetailBaseTVCell {
-    
-    
-    //MARK: Static properties
-    
-    
-    static var images : [String : UIImage] = [:]
+//MARK: ChatListCell
+
+
+public class ChatListCell: ChannelDetailBaseTVCell {
     
     
     //MARK: Public properties
     
     
-    @IBOutlet weak var ivMessageIcon : UIImageView?
-    @IBOutlet weak var lblSubscribers : UILabel?
-    @IBOutlet weak var lblLastTime : UILabel?
-    @IBOutlet weak var lblMessage : UILabel?
-    @IBOutlet weak var avatarView : UIImageView?
+    @IBOutlet public private(set) weak var avatarView : UIImageView?
+    @IBOutlet public private(set) weak var ivMessageIcon : UIImageView?
+    @IBOutlet public private(set) weak var lblSubscribers : UILabel?
+    @IBOutlet public private(set) weak var lblLastTime : UILabel?
+    @IBOutlet public private(set) weak var lblMessage : UILabel?
+    
+    
+    //MARK: Internal properties
+    
+    
+    weak var delegate : ChatListCellDelegate?
     
     
     //MARK: Overridden Properties
@@ -101,49 +106,29 @@ class SummaryResponseCell: ChannelDetailBaseTVCell {
             }
             
             lblLastTime?.text = ChannelManager.sharedInstance.formatter.displayTime(detailResponse.lastPublishedTime!)
-            if detailResponse.subscribers.count > 2 {
-                ivMessageIcon?.image = UIImage(named: "user_group.png")
-            } else if let userProfile = subscribers.first {
-                let tmpUser = MMUser()
-                tmpUser.extras = ["hasAvatar" : "true"]
-                tmpUser.firstName = ""
-                tmpUser.lastName = ""
-                tmpUser.userName = userProfile.displayName
-                tmpUser.userID = userProfile.userId
-                let nameComponents = userProfile.displayName.componentsSeparatedByString(" ")
-                if let firstName = nameComponents.first {
-                    tmpUser.firstName = firstName
-                }
-                
-                if nameComponents.count > 1 {
-                    tmpUser.lastName = nameComponents[1]
-                }
-                
-                if let avatarImage = self.ivMessageIcon {
-                    if let image = SummaryResponseCell.images[tmpUser.userID] {
-                        avatarImage.image = image
-                    } else {
-                        avatarImage.image = nil
-                        let placeHolderImage = Utils.noAvatarImageForUser(tmpUser)
-                        if let url = tmpUser.avatarURL() {
-                            Utils.loadImageWithUrl(url, toImageView: avatarImage, placeholderImage: placeHolderImage, onlyShowAfterDownload: true, completion: { image in
-                                SummaryResponseCell.images[tmpUser.userID] = image
-                            })
-                        } else {
-                            avatarImage.image = placeHolderImage
-                        }
-                    }
-                }
-            }
         }
+    }
+    
+    
+    //MARK: Actions
+    
+    
+    func didSelectAvatar() {
+        self.delegate?.didSelectCellAvatar(self)
     }
     
     
     //MARK: Overrides
     
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
+        
+        let tap = UITapGestureRecognizer(target: self, action: "didSelectAvatar")
+        tap.cancelsTouchesInView = true
+        tap.delaysTouchesBegan = true
+        self.avatarView?.userInteractionEnabled = true
+        self.avatarView?.addGestureRecognizer(tap)
         
         if let ivMessageIcon = ivMessageIcon {
             ivMessageIcon.layer.cornerRadius = ivMessageIcon.bounds.width / 2

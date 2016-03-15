@@ -22,7 +22,7 @@ import MagnetMax
 //Mark: MagnetChatListViewController
 
 
-public class MMXChatListViewController: HomeViewController, ContactsControllerDelegate {
+public class MMXChatListViewController: CoreChatListViewController, ContactsControllerDelegate {
     
     
     //MARK: Private Variables
@@ -64,8 +64,12 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
         self.view.tintColor = self.appearance.tintColor
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        self.datasource = DefaultChatListControllerDatasource()
-        self.delegate = DefaultChatListControllerDelegate()
+        if self.datasource == nil {
+            self.datasource = DefaultChatListControllerDatasource()
+        }
+        if self.delegate == nil {
+            self.delegate = DefaultChatListControllerDelegate()
+        }
         if let datasource = self.datasource as? DefaultChatListControllerDatasource {
             datasource.controller = self
         }
@@ -84,6 +88,8 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
     
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        assert(self.navigationController != nil, "MMXChatListViewController must be presented using a Navagation Controller")
         
         generateNavBars()
     }
@@ -151,6 +157,10 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
         return true
     }
     
+    override public func cellDidCreate(cell: UITableViewCell) {
+        self.datasource?.mmxListDidCreateCell?(cell)
+    }
+    
     override public func cellForChannel(channel : MMXChannel, channelDetails : MMXChannelDetailResponse, indexPath : NSIndexPath) -> UITableViewCell? {
         return self.datasource?.mmxListCellForChannel?(tableView, channel : channel, channelDetails : channelDetails, indexPath : indexPath)
     }
@@ -160,6 +170,10 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
             return height
         }
         return super.cellHeightForChannel(channel, channelDetails: channelDetails, indexPath: indexPath)
+    }
+    
+    override public func didSelectUserAvatar(user: MMUser) {
+        self.delegate?.mmxAvatarDidClick?(user)
     }
     
     override public func imageForChannelDetails(imageView : UIImageView, channelDetails : MMXChannelDetailResponse) {
@@ -177,6 +191,14 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
         return false
     }
     
+    override public func heightForFooter(index: Int) -> CGFloat {
+        if let height = self.datasource?.mmxTableViewFooterHeight?(index) {
+            return height
+        }
+        
+        return 0.0
+    }
+    
     override public func loadMore(searchText: String?, offset: Int) {
         newLoadingContext()
         if searchText != nil {
@@ -191,6 +213,14 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
         } else {
             self.datasource?.mmxControllerLoadMore(searchText, offset : offset)
         }
+    }
+    
+    override public func numberOfFooters() -> Int {
+        if let number = self.datasource?.mmxTableViewNumberOfFooters?() {
+            return number
+        }
+        
+        return 0
     }
     
     override public func onChannelDidLeave(channel: MMXChannel, channelDetails: MMXChannelDetailResponse) {
@@ -220,8 +250,12 @@ public class MMXChatListViewController: HomeViewController, ContactsControllerDe
         return false
     }
     
-    override public func tableViewFooter() -> UIView? {
-        return self.datasource?.mmxTableViewFooter?()
+    override public func tableViewFooter(index: Int) -> UIView {
+        if let footer = self.datasource?.mmxTableViewFooter?(index) {
+            return footer
+        }
+        
+        return super.tableViewFooter(index)
     }
     
     
