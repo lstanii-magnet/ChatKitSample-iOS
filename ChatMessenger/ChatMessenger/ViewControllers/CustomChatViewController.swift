@@ -25,9 +25,9 @@ class CustomChatViewController: MMXChatViewController {
     //MARK: Internal Overrides
     
     
-    override internal var currentDetailsViewController : MMXContactsPickerController? {
+    override internal var chatDetailsViewController : MMXContactsPickerController? {
         didSet {
-            currentDetailsViewController?.tableView.backgroundColor = UIColor.orangeColor()
+            chatDetailsViewController?.tableView.backgroundColor = UIColor.orangeColor()
         }
     }
     

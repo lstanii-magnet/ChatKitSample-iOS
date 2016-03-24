@@ -1,19 +1,19 @@
 /*
-* Copyright (c) 2016 Magnet Systems, Inc.
-* All rights reserved.
-*
-* Licensed under the Apache License, Version 2.0 (the "License"); you
-* may not use this file except in compliance with the License. You
-* may obtain a copy of the License at
-*
-* http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-* implied. See the License for the specific language governing
-* permissions and limitations under the License.
-*/
+ * Copyright (c) 2016 Magnet Systems, Inc.
+ * All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you
+ * may not use this file except in compliance with the License. You
+ * may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+ * implied. See the License for the specific language governing
+ * permissions and limitations under the License.
+ */
 
 import UIKit
 import ChatKit
@@ -47,13 +47,13 @@ class ViewController: MMXChatListViewController {
         if !revealLoaded {
             revealLoaded = true
             if self.revealViewController() != nil {
-                menuButton?.addTarget(self.revealViewController(), action: "revealToggle:", forControlEvents: .TouchUpInside)
+                menuButton?.addTarget(self.revealViewController(), action: #selector(self.revealViewController().revealToggle(_:)), forControlEvents: .TouchUpInside)
                 self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
             }
         }
     }
-
-
+    
+    
     //Override default chatview with a custom one
     
     
@@ -78,22 +78,30 @@ class ViewController: MMXChatListViewController {
         }
     }
     
-    override func setupViewController() {
-        super.setupViewController()
+    var customDatasource : ChatListControllerDatasource {
+        get {
+            let customDatasource = HomeChatListDatasource()
+            customDatasource.controller = self
+            return customDatasource
+        }
+    }
+    
+    override var datasource: ChatListControllerDatasource? {
+        set { }
+        
+        get {
+            return customDatasource
+        }
+    }
+    
+    override func viewDidLoad() {
         
         //added custom datasource for chats current user owns
-        let customDatasource = HomeChatListDatasource()
-        customDatasource.controller = self
-        self.datasource = customDatasource
+        
         
         let customDelegate = CustomChatListDelegate()
         customDelegate.controller = self
         self.delegate = customDelegate
-        
-        self.registerCells(self.tableView)
-    }
-    
-    override func viewDidLoad() {
         
         super.viewDidLoad()
         

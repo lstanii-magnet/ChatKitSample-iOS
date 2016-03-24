@@ -23,7 +23,7 @@ import MagnetMax
 //MARK: MagnetChatViewController
 
 
-public class MMXChatViewController: CoreChatViewController {
+public class MMXChatViewController: CoreChatViewController, Define_MMXChatViewController {
     
     
     //Private Variables
@@ -66,8 +66,8 @@ public class MMXChatViewController: CoreChatViewController {
     //These can be overridden to inject datasources, delegates and other customizations into the variable on didSet
     
     
-    public weak var currentDetailsViewController : MMXContactsPickerController?
-    public weak var currentSubscribersDataSource : SubscribersDatasource?
+    public weak var chatDetailsViewController : MMXContactsPickerController?
+    public weak var chatDetailsDataSource : SubscribersDatasource?
     
     
     //MARK: Init
@@ -96,7 +96,11 @@ public class MMXChatViewController: CoreChatViewController {
     //MARK: Public Methods
     
     
-    public override func hasMore() -> Bool {
+    override public func append(mmxMessages: [MMXMessage]) {
+        super.append(mmxMessages)
+    }
+    
+    internal override func hasMore() -> Bool {
         if let datasource = self.datasource {
             return datasource.mmxControllerHasMore()
         }
@@ -105,14 +109,6 @@ public class MMXChatViewController: CoreChatViewController {
     
     public func loadingContext() -> Int {
         return self.requestNumber
-    }
-    
-    override public func loadMore(channel : MMXChannel?, offset: Int) {
-        self.datasource?.mmxControllerLoadMore(channel, offset: offset)
-    }
-    
-    private func newLoadingContext() {
-        self.requestNumber++
     }
     
     public func reloadData() {
@@ -170,6 +166,10 @@ public class MMXChatViewController: CoreChatViewController {
         }
     }
     
+    private func newLoadingContext() {
+        self.requestNumber++
+    }
+
     
     //MARK: Actions
     
@@ -195,12 +195,12 @@ public class MMXChatViewController: CoreChatViewController {
             detailsViewController.canSearch = false
             detailsViewController.title = CKStrings.kStr_Subscribers
             
-            self.currentDetailsViewController = detailsViewController
-            self.currentSubscribersDataSource = subDatasource
+            self.chatDetailsViewController = detailsViewController
+            self.chatDetailsDataSource = subDatasource
             
-            detailsViewController.datasource = self.currentSubscribersDataSource
+            detailsViewController.datasource = self.chatDetailsDataSource
             
-            if let detailsVC = self.currentDetailsViewController {
+            if let detailsVC = self.chatDetailsViewController {
                 self.navigationController?.pushViewController(detailsVC, animated: true)
             }
         }
@@ -210,24 +210,24 @@ public class MMXChatViewController: CoreChatViewController {
     //MARK: - Core Method Overrides
     
     
-    override public func append(mmxMessages: [MMXMessage]) {
-        super.append(mmxMessages)
-    }
-    
-    override public func didSelectUserAvatar(user: MMUser) {
+    override internal func didSelectUserAvatar(user: MMUser) {
         self.delegate?.mmxAvatarDidClick?(user)
     }
     
-    override public func onChannelCreated(mmxChannel: MMXChannel) {
+    override internal func loadMore(channel : MMXChannel?, offset: Int) {
+        self.datasource?.mmxControllerLoadMore(channel, offset: offset)
+    }
+    
+    override internal func onChannelCreated(mmxChannel: MMXChannel) {
         self.useNavigationBarNotifier = true
         self.delegate?.mmxChatDidCreateChannel(mmxChannel)
     }
     
-    override public func onMessageRecived(mmxMessage: MMXMessage) {
+    override internal func onMessageRecived(mmxMessage: MMXMessage) {
         self.delegate?.mmxChatDidRecieveMessage(mmxMessage)
     }
     
-    override public func onMessageSent(mmxMessage: MMXMessage) {
+    override internal func onMessageSent(mmxMessage: MMXMessage) {
         self.delegate?.mmxChatDidSendMessage(mmxMessage)
     }
 }
